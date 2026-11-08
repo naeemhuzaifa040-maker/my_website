@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Portal - Anumta's App</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Navbar Styling */
+        header {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .logo {
+            color: #fff;
+            font-weight: 700;
+            font-size: 22px;
+            letter-spacing: 1px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        nav ul li a:hover {
+            color: #ffecd2;
+            text-shadow: 0 0 10px rgba(255,255,255,0.5);
+        }
+
+        /* Main Container */
+        .container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .card {
+            background: #ffffff;
+            width: 100%;
+            max-width: 600px;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h1, h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        p {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 15px;
+        }
+
+        /* Form Inputs */
+        input[type="text"], input[type="email"], input[type="password"] {
+            width: 100%;
+            padding: 12px 15px;
+            margin: 10px 0 20px 0;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 15px;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        input:focus {
+            border-color: #667eea;
+            box-shadow: 0 0 8px rgba(102, 126, 234, 0.3);
+        }
+
+        /* Buttons Style */
+        .btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        /* Subject Grid Options */
+        .subject-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .sub-btn {
+            background: #f8f9fa;
+            border: 2px solid #667eea;
+            color: #667eea;
+            padding: 20px;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .sub-btn:hover {
+            background: #667eea;
+            color: white;
+            transform: scale(1.03);
+        }
+
+        /* Quiz Options */
+        .options-list {
+            text-align: left;
+            margin: 20px 0;
+        }
+
+        .option-item {
+            background: #f1f3f5;
+            padding: 12px 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: 0.2s;
+        }
+
+        .option-item:hover {
+            background: #e9ecef;
+            border-color: #667eea;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header / Navbar -->
+    <header>
+        <div class="logo">🚀 TestPortal</div>
+        <nav>
+            <ul>
+                <li><a onclick="showHome()">Home</a></li>
+                <li><a onclick="showAbout()">About Us</a></li>
+                <li><a onclick="showContact()">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Container -->
+    <div class="container">
+
+        <!-- 1. Welcome Page -->
+        <div id="welcome-page" class="card">
+            <h1>Welcome to Test Portal</h1>
+            <p>Test your skills and see how well prepared you are!<br>Click the button below to get started.</p>
+            <button class="btn" onclick="showLogin()">Get Started</button>
+        </div>
+
+        <!-- 2. Login Page -->
+        <div id="login-page" class="card hidden">
+            <h2>Student Login</h2>
+            <p>Please enter your name so we can save your result.</p>
+            <input type="text" id="username" placeholder="Enter your full name">
+            <button class="btn" onclick="goToSubjects()">Login & Proceed</button>
+        </div>
+
+        <!-- 3. Subject Selection Page (4 Buttons) -->
+        <div id="subject-page" class="card hidden">
+            <h2 id="greeting-text">Select Subject</h2>
+            <p>Which topic would you like to take a test in? Please select one:</p>
+            <div class="subject-grid">
+                <button class="sub-btn" onclick="startQuiz('HTML')">1. HTML</button>
+                <button class="sub-btn" onclick="startQuiz('CSS')">2. CSS</button>
+                <button class="sub-btn" onclick="startQuiz('JavaScript')">3. JavaScript</button>
+                <button class="sub-btn" onclick="startQuiz('Python')">4. Python</button>
+            </div>
+        </div>
+
+        <!-- 4. Quiz Question Page -->
+        <div id="quiz-page" class="card hidden">
+            <h3 id="question-count" style="color: #667eea; margin-bottom: 10px;">Question 1 of 10</h3>
+            <h2 id="question-text" style="font-size: 18px; min-height: 60px;">Question goes here...</h2>
+            <div class="options-list" id="options-container">
+                <!-- Options will load dynamically -->
+            </div>
+        </div>
+
+        <!-- 5. Result Page -->
+        <div id="result-page" class="card hidden">
+            <h2>🎉 Test Completed!</h2>
+            <p id="result-message" style="font-size: 18px; font-weight: 600; color: #333;"></p>
+            <button class="btn" onclick="showSubjects()">Take Another Quiz</button>
+        </div>
+
+        <!-- About Page -->
+        <div id="about-page" class="card hidden">
+            <h2>About Us</h2>
+            <p>This portal is designed by Anumta using the power of HTML, CSS, and JavaScript to help students easily test their programming concepts!</p>
+            <button class="btn" onclick="showHome()">Back to Home</button>
+        </div>
+
+        <!-- Contact Page -->
+        <div id="contact-page" class="card hidden">
+            <h2>Contact Us</h2>
+            <p>Have any questions or feedback? Send us a message!</p>
+            <input type="text" placeholder="Your Name">
+            <input type="email" placeholder="Your Email">
+            <button class="btn" onclick="alert('Message sent successfully!'); showHome();">Send Message</button>
+        </div>
+
+    </div>
+
+    <!-- JavaScript Logic -->
+    <script>
+        // Pages Switching Functions
+        function hideAllPages() {
+            document.getElementById('welcome-page').classList.add('hidden');
+            document.getElementById('login-page').classList.add('hidden');
+            document.getElementById('subject-page').classList.add('hidden');
+            document.getElementById('quiz-page').classList.add('hidden');
+            document.getElementById('result-page').classList.add('hidden');
+            document.getElementById('about-page').classList.add('hidden');
+            document.getElementById('contact-page').classList.add('hidden');
+        }
+
+        function showHome() { hideAllPages(); document.getElementById('welcome-page').classList.remove('hidden'); }
+        function showLogin() { hideAllPages(); document.getElementById('login-page').classList.remove('hidden'); }
+        function showAbout() { hideAllPages(); document.getElementById('about-page').classList.remove('hidden'); }
+        function showContact() { hideAllPages(); document.getElementById('contact-page').classList.remove('hidden'); }
+        function showSubjects() { 
+            hideAllPages(); 
+            document.getElementById('subject-page').classList.remove('hidden');
+            let name = document.getElementById('username').value || "Student";
+            document.getElementById('greeting-text').innerText = `Welcome, ${name}! Select Subject`;
+        }
+
+        function goToSubjects() {
+            let name = document.getElementById('username').value;
+            if(name.trim() === "") {
+                alert("Please enter your name first!");
+                return;
+            }
+            showSubjects();
+        }
+
+        // Quiz Data Bank (10 Sample Questions across subjects)
+        const allQuestions = {
+            'HTML': [
+                { q: "What does HTML stand for?", options: ["Hyper Text Markup Language", "High Tech Modern Language", "Hyper Transfer Machine Language", "None"], answer: 0 },
+                { q: "Which tag is used for the largest heading in HTML?", options: ["<h6>", "<head>", "<h1>", "<heading>"], answer: 2 },
+                { q: "Which attribute is used to provide a unique id to an HTML element?", options: ["class", "id", "style", "name"], answer: 1 },
+                { q: "Which HTML tag is used to create a hyperlink?", options: ["<a>", "<link>", "<href>", "<url>"], answer: 0 },
+                { q: "What is the correct HTML tag for inserting a line break?", options: ["<lb>", "<break>", "<br>", "<hr>"], answer: 2 },
+                { q: "Which tag is used to display an image in HTML?", options: ["<img>", "<image>", "<pic>", "<src>"], answer: 0 },
+                { q: "Which element is used to get unordered list in HTML?", options: ["<ol>", "<ul>", "<list>", "<li>"], answer: 1 },
+                { q: "HTML is a type of what language?", options: ["Programming Language", "Markup Language", "Scripting Language", "Network Language"], answer: 1 },
+                { q: "Which tag defines the body of an HTML document?", options: ["<body>", "<main>", "<section>", "<doc>"], answer: 0 },
+                { q: "What is the correct extension for an HTML file?", options: [".ht", ".html", ".hml", ".Hyper"], answer: 1 }
+            ],
+            'CSS': [
+                { q: "What does CSS stand for?", options: ["Creative Style Sheets", "Cascading Style Sheets", "Computer Style Sheets", "Colorful Style Sheets"], answer: 1 },
+                { q: "Which HTML attribute is used to define inline styles?", options: ["styles", "class", "style", "font"], answer: 2 },
+                { q: "Which is the correct CSS syntax?", options: ["body {color: black;}", "{body:color=black;}", "body:color=black;", "{body;color:black;}"], answer: 0 },
+                { q: "How do you insert a comment in a CSS file?", options: ["// this is comment", "/* this is comment */", "<!-- this is comment -->", "' this is comment"], answer: 1 },
+                { q: "Which property is used to change the background color?", options: ["color", "bgcolor", "background-color", "image-color"], answer: 2 },
+                { q: "How do you add a background color for all <h1> elements?", options: ["h1.all {background-color: #FFFFFF;}", "all.h1 {background-color: #FFFFFF;}", "h1 {background-color: #FFFFFF;}", "background-color.h1 {element}"], answer: 2 },
+                { q: "Which property is used to change the text color of an element?", options: ["text-color", "color", "font-color", "fgcolor"], answer: 1 },
+                { q: "Which CSS property controls the text size?", options: ["font-style", "text-size", "font-size", "text-style"], answer: 2 },
+                { q: "How do you select an element with id 'demo'?", options: [".demo", "#demo", "*demo", "demo"], answer: 1 },
+                { q: "Which property is used to make text bold in CSS?", options: ["font-weight", "style: bold", "text-weight", "bold: true"], answer: 0 }
+            ],
+            'JavaScript': [
+                { q: "Inside which HTML element do we put the JavaScript?", options: ["<javascript>", "<script>", "<js>", "<scripting>"], answer: 1 },
+                { q: "How do you write 'Hello World' in an alert box?", options: ["msg('Hello World');", "alertBox('Hello World');", "alert('Hello World');", "msgBox('Hello World');"], answer: 2 },
+                { q: "How do you create a function in JavaScript?", options: ["function myFunction()", "function:myFunction()", "create myFunction()", "def myFunction()"], answer: 0 },
+                { q: "How to write an IF statement in JavaScript?", options: ["if i = 5 then", "if (i == 5)", "if i == 5 then", "if i = 5"], answer: 1 },
+                { q: "How does a FOR loop start?", options: ["for (i = 0; i <= 5)", "for i = 1 to 5", "for (i <= 5; i++)", "for (let i = 0; i <= 5; i++)"], answer: 3 },
+                { q: "What is the correct way to write a JavaScript array?", options: ["var colors = 'red', 'green', 'blue'", "var colors = (1:'red', 2:'green')", "var colors = ['red', 'green', 'blue']", "var colors = 1=('red'), 2=('green')"], answer: 2 },
+                { q: "How do you round the number 7.25, to the nearest integer?", options: ["Math.round(7.25)", "rnd(7.25)", "Math.rnd(7.25)", "round(7.25)"], answer: 0 },
+                { q: "Which event occurs when the user clicks on an HTML element?", options: ["onmousechange", "onclick", "onmouseover", "onchange"], answer: 1 },
+                { q: "How do you declare a variable in modern JavaScript?", options: ["v x;", "variable x;", "let x;", "varible x;"], answer: 2 },
+                { q: "What is JavaScript?", options: ["A styling language", "A markup language", "A programming language", "A database system"], answer: 2 }
+            ],
+            'Python': [
+                { q: "Which of the following is a correct extension for Python files?", options: [".pyth", ".pt", ".py", ".pyt"], answer: 2 },
+                { q: "How do you insert comments in Python code?", options: ["// This is a comment", "/* This is a comment */", "# This is a comment", "<!-- This is a comment -->"], answer: 2 },
+                { q: "Which keyword is used to create a function in Python?", options: ["function", "def", "fun", "define"], answer: 1 },
+                { q: "Which of the following data types is immutable in Python?", options: ["list", "dictionary", "set", "tuple"], answer: 3 },
+                { q: "What is the output of print(2 ** 3)?", options: ["6", "8", "9", "23"], answer: 1 },
+                { q: "Which method can be used to return a string in upper case?", options: ["upper()", "uppercase()", "toUpperCase()", "case.upper()"], answer: 0 },
+                { q: "Which operator is used for multiplication in Python?", options: ["X", "*", "#", "%"], answer: 1 },
+                { q: "How do you create a variable with numeric value 5?", options: ["x = 5", "int x = 5", "let x = 5", "variable x = 5"], answer: 0 },
+                { q: "Which of these collections is ordered and changeable?", options: ["Tuple", "Set", "Dictionary", "List"], answer: 3 },
+                { q: "What is the correct file mode to open a file for writing in Python?", options: ["r", "w", "a", "wr"], answer: 1 }
+            ]
+        };
+
+        let currentSubject = '';
+        let currentQuestionIndex = 0;
+        let score = 0;
+        let questionsList = [];
+
+        function startQuiz(subject) {
+            currentSubject = subject;
+            questionsList = allQuestions[subject];
+            currentQuestionIndex = 0;
+            score = 0;
+            
+            hideAllPages();
+            document.getElementById('quiz-page').classList.remove('hidden');
+            loadQuestion();
+        }
+
+        function loadQuestion() {
+            if (currentQuestionIndex < questionsList.length) {
+                let qObj = questionsList[currentQuestionIndex];
+                document.getElementById('question-count').innerText = `Question ${currentQuestionIndex + 1} of 10 (${currentSubject})`;
+                document.getElementById('question-text').innerText = qObj.q;
+                
+                let optionsHtml = '';
+                qObj.options.forEach((opt, index) => {
+                    optionsHtml += `<div class="option-item" onclick="checkAnswer(${index})">${index + 1}. ${opt}</div>`;
+                });
+                document.getElementById('options-container').innerHTML = optionsHtml;
+            } else {
+                showResult();
+            }
+        }
+
+        function checkAnswer(selectedIndex) {
+            let qObj = questionsList[currentQuestionIndex];
+            if (selectedIndex === qObj.answer) {
+                score++;
+            }
+            currentQuestionIndex++;
+            loadQuestion();
+        }
+
+        function showResult() {
+            hideAllPages();
+            document.getElementById('result-page').classList.remove('hidden');
+            let name = document.getElementById('username').value || "Student";
+            let percentage = (score / 10) * 100;
+            let msg = `${name}, you scored **${score}** out of 10 in the ${currentSubject} quiz! (${percentage}%)`;
+            if(score >= 7) {
+                msg += "<br>Awesome! Great performance, you are a pro! 😎";
+            } else {
+                msg += "<br>A little more practice is needed, but practice makes perfect! 💪";
+            }
+            document.getElementById('result-message').innerHTML = msg;
+        }
+    </script>
+</body>
+</html>
