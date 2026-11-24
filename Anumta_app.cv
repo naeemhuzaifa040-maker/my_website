@@ -1,0 +1,1611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANUMTA NAEEM — Executive CV & Resume Studio</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Cormorant Garamond, Playfair Display, Plus Jakarta Sans, Inter, DM Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- html2pdf.js for Direct High-Resolution A4 PDF Export -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        serif: ['"Cormorant Garamond"', 'serif'],
+                        playfair: ['"Playfair Display"', 'serif'],
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        inter: ['"Inter"', 'sans-serif'],
+                        dmsans: ['"DM Sans"', 'sans-serif'],
+                    },
+                    colors: {
+                        alabaster: '#F8F6F2',
+                        cream: '#EFECE6',
+                        obsidian: '#141416',
+                        charcoal: '#2A292E',
+                        rosegold: '#B6836F',
+                        rosegoldDark: '#94624F',
+                        champagne: '#E5D6C5',
+                    },
+                    boxShadow: {
+                        'studio': '0 20px 45px -15px rgba(20, 20, 22, 0.08)',
+                        'paper': '0 28px 60px -15px rgba(20, 20, 22, 0.22)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Studio Scrollbars */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #F8F6F2;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #D1C9BE;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #B6836F;
+        }
+
+        /* Studio Executive Buttons */
+        .btn-studio-dark {
+            background: linear-gradient(135deg, #141416 0%, #2D2C32 100%);
+            color: #F8F6F2;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 8px 20px -6px rgba(20, 20, 22, 0.35);
+        }
+        .btn-studio-dark:hover {
+            transform: translateY(-1.5px);
+            box-shadow: 0 14px 25px -6px rgba(20, 20, 22, 0.45);
+        }
+
+        .btn-studio-accent {
+            background: linear-gradient(135deg, #C4907C 0%, #9C6955 100%);
+            color: #FFFFFF;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 8px 22px -5px rgba(182, 131, 111, 0.45);
+        }
+        .btn-studio-accent:hover {
+            transform: translateY(-1.5px);
+            filter: brightness(1.05);
+            box-shadow: 0 14px 28px -5px rgba(182, 131, 111, 0.55);
+        }
+
+        .btn-studio-ghost {
+            background: #FFFFFF;
+            border: 1px solid rgba(20, 20, 22, 0.12);
+            color: #141416;
+            transition: all 0.25s ease;
+        }
+        .btn-studio-ghost:hover {
+            background: #EFECE6;
+            border-color: rgba(20, 20, 22, 0.25);
+        }
+
+        /* Exact A4 Paper Proportions */
+        .a4-paper {
+            width: 210mm;
+            min-height: 297mm;
+            background: #FFFFFF;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+            transform-origin: top center;
+            transition: transform 0.25s ease;
+        }
+
+        /* Typography Pairings for the CV Document */
+        .font-pair-modern {
+            --cv-heading-font: 'Plus Jakarta Sans', sans-serif;
+            --cv-body-font: 'Plus Jakarta Sans', sans-serif;
+        }
+        .font-pair-editorial {
+            --cv-heading-font: 'Cormorant Garamond', serif;
+            --cv-body-font: 'Inter', sans-serif;
+        }
+        .font-pair-classic {
+            --cv-heading-font: 'Playfair Display', serif;
+            --cv-body-font: 'DM Sans', sans-serif;
+        }
+
+        .cv-h-font {
+            font-family: var(--cv-heading-font);
+        }
+        .cv-b-font {
+            font-family: var(--cv-body-font);
+        }
+
+        /* Flawless Native Print Rules */
+        @media print {
+            body * {
+                visibility: hidden;
+            }
+            #cvDocument, #cvDocument * {
+                visibility: visible;
+            }
+            #cvDocument {
+                position: fixed !important;
+                left: 0 !important;
+                top: 0 !important;
+                width: 210mm !important;
+                min-height: 297mm !important;
+                transform: scale(1) !important;
+                box-shadow: none !important;
+                margin: 0 !important;
+            }
+            @page {
+                size: A4;
+                margin: 0;
+            }
+        }
+    </style>
+</head>
+<body class="bg-alabaster text-obsidian font-sans antialiased selection:bg-rosegold selection:text-white">
+
+    <!-- ===================================================================== -->
+    <!-- TOP GLASSMORPHIC STUDIO TOOLBAR                                       -->
+    <!-- ===================================================================== -->
+    <header class="sticky top-0 z-40 bg-alabaster/90 backdrop-blur-xl border-b border-obsidian/10">
+        <div class="max-w-[1680px] mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
+            
+            <!-- Studio Brand Identity -->
+            <div class="flex items-center gap-3.5">
+                <div class="w-11 h-11 rounded-2xl bg-gradient-to-br from-obsidian to-charcoal text-champagne flex items-center justify-center font-serif font-bold text-xl shadow-sm border border-white/10">
+                    AN
+                </div>
+                <div>
+                    <div class="flex items-center gap-2">
+                        <h1 class="font-serif text-xl sm:text-2xl font-bold tracking-[0.14em] text-obsidian leading-none">
+                            ANUMTA NAEEM
+                        </h1>
+                        <span class="hidden sm:inline-block px-2 py-0.5 rounded-full bg-rosegold/15 text-rosegoldDark text-[9px] font-bold uppercase tracking-widest border border-rosegold/30">
+                            Pro Studio
+                        </span>
+                    </div>
+                    <p class="text-[10px] uppercase tracking-[0.26em] text-charcoal/65 font-semibold mt-1">
+                        Executive Resume &amp; CV Architect
+                    </p>
+                </div>
+            </div>
+
+            <!-- Center Status Indicator (Desktop) -->
+            <div class="hidden xl:flex items-center gap-6 bg-white/80 px-5 py-2 rounded-full border border-obsidian/10 shadow-sm">
+                <div class="flex items-center gap-2 text-xs text-charcoal/80">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                    <span id="autoSaveLabel" class="font-medium">Auto-saved to browser</span>
+                </div>
+                <div class="h-4 w-px bg-obsidian/10"></div>
+                <div class="flex items-center gap-2.5">
+                    <span class="text-[11px] font-bold uppercase tracking-wider text-charcoal/60">CV Strength:</span>
+                    <div class="w-24 h-2 rounded-full bg-cream overflow-hidden">
+                        <div id="strengthProgressBar" class="h-full bg-gradient-to-r from-rosegold to-emerald-600 transition-all duration-500" style="width: 90%;"></div>
+                    </div>
+                    <span id="strengthPercentLabel" class="text-xs font-bold text-obsidian">90%</span>
+                </div>
+            </div>
+
+            <!-- Right Studio Action Buttons -->
+            <div class="flex items-center gap-2 sm:gap-2.5">
+                <button onclick="fillSampleData()" class="btn-studio-ghost px-3.5 py-2.5 rounded-full text-xs font-semibold flex items-center gap-1.5" title="Load Executive Sample">
+                    <i class="fa-solid fa-wand-magic-sparkles text-rosegold"></i>
+                    <span class="hidden md:inline">Sample</span>
+                </button>
+
+                <button onclick="clearAllData()" class="btn-studio-ghost px-3.5 py-2.5 rounded-full text-xs font-semibold flex items-center gap-1.5 text-rose-700 hover:bg-rose-50" title="Reset All Fields">
+                    <i class="fa-regular fa-trash-can"></i>
+                    <span class="hidden md:inline">Reset</span>
+                </button>
+
+                <button onclick="window.print()" class="btn-studio-dark px-4 sm:px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider flex items-center gap-2">
+                    <i class="fa-solid fa-print"></i>
+                    <span class="hidden sm:inline">Print</span>
+                </button>
+
+                <button id="downloadPdfBtn" onclick="downloadCVAsPDF()" class="btn-studio-accent px-5 sm:px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider flex items-center gap-2">
+                    <i class="fa-solid fa-file-arrow-down text-sm"></i>
+                    <span>Download PDF</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ===================================================================== -->
+    <!-- MAIN STUDIO WORKSPACE (EDITOR LEFT | LIVE A4 CANVAS RIGHT)            -->
+    <!-- ===================================================================== -->
+    <main class="max-w-[1680px] mx-auto px-4 sm:px-6 lg:px-8 py-6 lg:py-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+
+            <!-- =============================================================== -->
+            <!-- LEFT COLUMN: STRUCTURED STUDIO EDITOR (5 Cols)                  -->
+            <!-- =============================================================== -->
+            <div class="lg:col-span-5 space-y-5">
+
+                <!-- Mobile/Tablet Strength Bar -->
+                <div class="xl:hidden bg-white p-4 rounded-2xl border border-obsidian/10 flex items-center justify-between gap-4 shadow-sm">
+                    <span class="text-xs font-bold uppercase tracking-wider text-charcoal/70">CV Strength</span>
+                    <div class="flex-1 h-2 rounded-full bg-cream overflow-hidden">
+                        <div id="strengthProgressBarMobile" class="h-full bg-gradient-to-r from-rosegold to-emerald-600 transition-all duration-500" style="width: 90%;"></div>
+                    </div>
+                    <span id="strengthPercentLabelMobile" class="text-xs font-bold text-obsidian">90%</span>
+                </div>
+
+                <!-- Navigation Tabs Pill Bar -->
+                <div class="bg-white p-2 rounded-3xl border border-obsidian/10 shadow-sm flex overflow-x-auto gap-1.5">
+                    <button type="button" onclick="switchEditorTab('profile', this)" class="editor-tab-btn active flex-1 py-2.5 px-3 rounded-2xl text-xs font-bold bg-obsidian text-alabaster transition whitespace-nowrap flex items-center justify-center gap-1.5">
+                        <i class="fa-regular fa-id-badge"></i> Profile
+                    </button>
+                    <button type="button" onclick="switchEditorTab('experience', this)" class="editor-tab-btn flex-1 py-2.5 px-3 rounded-2xl text-xs font-semibold text-charcoal hover:bg-cream/70 transition whitespace-nowrap flex items-center justify-center gap-1.5">
+                        <i class="fa-solid fa-briefcase"></i> Experience
+                    </button>
+                    <button type="button" onclick="switchEditorTab('education', this)" class="editor-tab-btn flex-1 py-2.5 px-3 rounded-2xl text-xs font-semibold text-charcoal hover:bg-cream/70 transition whitespace-nowrap flex items-center justify-center gap-1.5">
+                        <i class="fa-solid fa-graduation-cap"></i> Education
+                    </button>
+                    <button type="button" onclick="switchEditorTab('projects', this)" class="editor-tab-btn flex-1 py-2.5 px-3 rounded-2xl text-xs font-semibold text-charcoal hover:bg-cream/70 transition whitespace-nowrap flex items-center justify-center gap-1.5">
+                        <i class="fa-solid fa-layer-group"></i> Projects &amp; Skills
+                    </button>
+                    <button type="button" onclick="switchEditorTab('design', this)" class="editor-tab-btn flex-1 py-2.5 px-3 rounded-2xl text-xs font-semibold text-rosegoldDark bg-rosegold/10 hover:bg-rosegold/20 transition whitespace-nowrap flex items-center justify-center gap-1.5">
+                        <i class="fa-solid fa-palette"></i> Design
+                    </button>
+                </div>
+
+                <!-- =========================================================== -->
+                <!-- TAB 1: PROFILE & CONTACT DETAILS                            -->
+                <!-- =========================================================== -->
+                <section id="panel-profile" class="editor-panel bg-white rounded-3xl p-6 border border-obsidian/10 shadow-studio space-y-5">
+                    <div class="border-b border-obsidian/10 pb-3">
+                        <span class="text-[10px] font-bold uppercase tracking-[0.22em] text-rosegold">Step 01</span>
+                        <h2 class="font-serif text-2xl font-semibold text-obsidian">Personal &amp; Executive Identity</h2>
+                    </div>
+
+                    <!-- Portrait Photo Controls -->
+                    <div class="p-4 rounded-2xl bg-alabaster border border-obsidian/10 flex flex-col sm:flex-row items-center gap-4">
+                        <img id="editorPhotoThumb" src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=300&q=80" alt="Portrait" class="w-16 h-16 rounded-full object-cover border-2 border-rosegold shadow-sm shrink-0">
+                        
+                        <div class="flex-1 space-y-2 text-center sm:text-left">
+                            <div class="flex flex-wrap items-center justify-center sm:justify-start gap-2">
+                                <label class="btn-studio-dark px-3.5 py-1.5 rounded-full text-[11px] font-semibold cursor-pointer inline-flex items-center gap-1.5">
+                                    <i class="fa-solid fa-camera"></i> Upload Photo
+                                    <input type="file" id="photoUploadInput" accept="image/*" onchange="handlePhotoUpload(event)" class="hidden">
+                                </label>
+                                <button type="button" onclick="togglePhotoVisibility()" id="togglePhotoBtn" class="btn-studio-ghost px-3 py-1.5 rounded-full text-[11px] font-semibold">
+                                    <i class="fa-regular fa-eye"></i> Visible
+                                </button>
+                                <button type="button" onclick="togglePhotoShape()" id="toggleShapeBtn" class="btn-studio-ghost px-3 py-1.5 rounded-full text-[11px] font-semibold">
+                                    <i class="fa-regular fa-circle"></i> Circle
+                                </button>
+                            </div>
+                            <p class="text-[11px] text-charcoal/60">Tip: Hide photo when applying to strict US/UK ATS corporate portals.</p>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-[11px] font-bold uppercase tracking-wider text-charcoal/70 mb-1">Full Name *</label>
+                            <input type="text" id="inpName" oninput="syncFromInputs()" placeholder="Anumta Naeem" class="w-full px-4 py-2.5 rounded-xl bg-alabaster border border-obsidian/15 text-sm font-medium focus:outline-none focus:border-rosegold">
+                        </div>
+                        <div>
+                            <label class="block text-[11px] font-bold uppercase tracking-wider text-charcoal/70 mb-1">Target Role / Title *</label>
+                            <input type="text" id="inpRole" oninput="syncFromInputs()" placeholder="Creative Director & Product Strategist" class="w-full px-4 py-2.5 rounded-xl bg-alabaster border border-obsidian/15 text-sm focus:outline-none focus:border-rosegold">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-[11px] font-bold uppercase tracking-wider text-charcoal/70 mb-1">Email Address *</label>
+                            <input type="email" id="inpEmail" oninput="syncFromInputs()" placeholder="hello@anumtanaeem.com" class="w-full px-4 py-2.5 rounded-xl bg-alabaster border border-obsidian/15 text-sm focus:outline-none focus:border-rosegold">
+                        </div>
+                        <div>
+                            <label class="block text-[11px] font-bold uppercase tracking-wider text-charcoal/70 mb-1">Phone Number *</label>
+                            <input type="text" id="inpPhone" oninput="syncFromInputs()" placeholder="+92 300 8294012" class="w-full px-4 py-2.5 rounded-xl bg-alabaster border border-obsidian/15 text-sm focus:outline-none focus:border-rosegold">
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-[11px] font-bold uppercase tracking-wider text-charcoal/70 mb-1">Location</label>
+                            <input type="text" id="inpLocation" oninput="syncFromInputs()" placeholder="Karachi, Pakistan" class="w-full px-4 py-2.5 rounded-xl bg-alabaster border border-obsidian/15 text-sm focus:outline-none focus:border-rosegold">
+                        </div>
+                        <div>
+                            <label class="block text-[11px] font-bold uppercase tracking-wider text-charcoal/70 mb-1">LinkedIn / Portfolio URL</label>
+                            <input type="text" id="inpWebsite" oninput="syncFromInputs()" placeholder="linkedin.com/in/anumtanaeem" class="w-full px-4 py-2.5 rounded-xl bg-alabaster border border-obsidian/15 text-sm focus:outline-none focus:border-rosegold">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block text-[11px] font-bold uppercase tracking-wider text-charcoal/70 mb-1">Executive Summary</label>
+                        <textarea id="inpSummary" rows="4" oninput="syncFromInputs()" placeholder="Summarize your career achievements, leadership philosophy, and core value proposition..." class="w-full px-4 py-2.5 rounded-xl bg-alabaster border border-obsidian/15 text-sm focus:outline-none focus:border-rosegold leading-relaxed"></textarea>
+                    </div>
+                </section>
+
+                <!-- =========================================================== -->
+                <!-- TAB 2: WORK EXPERIENCE                                      -->
+                <!-- =========================================================== -->
+                <section id="panel-experience" class="editor-panel hidden bg-white rounded-3xl p-6 border border-obsidian/10 shadow-studio space-y-5">
+                    <div class="flex items-center justify-between border-b border-obsidian/10 pb-3">
+                        <div>
+                            <span class="text-[10px] font-bold uppercase tracking-[0.22em] text-rosegold">Step 02</span>
+                            <h2 class="font-serif text-2xl font-semibold text-obsidian">Career History</h2>
+                        </div>
+                        <button type="button" onclick="addExperienceItem()" class="btn-studio-accent px-4 py-2 rounded-full text-xs font-bold flex items-center gap-1.5">
+                            <i class="fa-solid fa-plus"></i> Add Role
+                        </button>
+                    </div>
+                    <div id="experienceListEditor" class="space-y-4">
+                        <!-- Injected dynamically -->
+                    </div>
+                </section>
+
+                <!-- =========================================================== -->
+                <!-- TAB 3: EDUCATION                                            -->
+                <!-- =========================================================== -->
+                <section id="panel-education" class="editor-panel hidden bg-white rounded-3xl p-6 border border-obsidian/10 shadow-studio space-y-5">
+                    <div class="flex items-center justify-between border-b border-obsidian/10 pb-3">
+                        <div>
+                            <span class="text-[10px] font-bold uppercase tracking-[0.22em] text-rosegold">Step 03</span>
+                            <h2 class="font-serif text-2xl font-semibold text-obsidian">Academic Background</h2>
+                        </div>
+                        <button type="button" onclick="addEducationItem()" class="btn-studio-accent px-4 py-2 rounded-full text-xs font-bold flex items-center gap-1.5">
+                            <i class="fa-solid fa-plus"></i> Add Degree
+                        </button>
+                    </div>
+                    <div id="educationListEditor" class="space-y-4">
+                        <!-- Injected dynamically -->
+                    </div>
+                </section>
+
+                <!-- =========================================================== -->
+                <!-- TAB 4: PROJECTS, SKILLS, LANGUAGES & CERTIFICATIONS         -->
+                <!-- =========================================================== -->
+                <section id="panel-projects" class="editor-panel hidden bg-white rounded-3xl p-6 border border-obsidian/10 shadow-studio space-y-6">
+                    <div class="border-b border-obsidian/10 pb-3">
+                        <span class="text-[10px] font-bold uppercase tracking-[0.22em] text-rosegold">Step 04</span>
+                        <h2 class="font-serif text-2xl font-semibold text-obsidian">Projects, Skills &amp; Credentials</h2>
+                    </div>
+
+                    <!-- Key Projects / Portfolio -->
+                    <div class="space-y-3">
+                        <div class="flex items-center justify-between">
+                            <label class="text-xs font-bold uppercase tracking-wider text-obsidian">Featured Projects / Portfolio</label>
+                            <button type="button" onclick="addProjectItem()" class="btn-studio-dark px-3.5 py-1.5 rounded-full text-[11px] font-bold flex items-center gap-1">
+                                <i class="fa-solid fa-plus"></i> Add Project
+                            </button>
+                        </div>
+                        <div id="projectListEditor" class="space-y-3">
+                            <!-- Injected dynamically -->
+                        </div>
+                    </div>
+
+                    <!-- Core Skills -->
+                    <div class="pt-3 border-t border-obsidian/10 space-y-2.5">
+                        <label class="block text-xs font-bold uppercase tracking-wider text-obsidian">Core Competencies &amp; Skills</label>
+                        <div class="flex gap-2">
+                            <input type="text" id="skillInputBox" onkeydown="if(event.key==='Enter'){event.preventDefault(); addSkillItem();}" placeholder="Type a skill & press Enter..." class="flex-1 px-4 py-2.5 rounded-xl bg-alabaster border border-obsidian/15 text-sm focus:outline-none focus:border-rosegold">
+                            <button type="button" onclick="addSkillItem()" class="btn-studio-accent px-5 py-2.5 rounded-xl text-xs font-bold">Add</button>
+                        </div>
+                        <div id="skillsEditorContainer" class="flex flex-wrap gap-2 pt-1">
+                            <!-- Skill chips -->
+                        </div>
+                    </div>
+
+                    <!-- Languages & Certifications -->
+                    <div class="pt-3 border-t border-obsidian/10 grid grid-cols-1 gap-4">
+                        <div>
+                            <label class="block text-[11px] font-bold uppercase tracking-wider text-charcoal/70 mb-1">Languages</label>
+                            <input type="text" id="inpLanguages" oninput="syncFromInputs()" placeholder="English (Native/Fluent), Urdu (Native), French (Basic)" class="w-full px-4 py-2.5 rounded-xl bg-alabaster border border-obsidian/15 text-sm focus:outline-none focus:border-rosegold">
+                        </div>
+                        <div>
+                            <label class="block text-[11px] font-bold uppercase tracking-wider text-charcoal/70 mb-1">Certifications &amp; Honors (One per line)</label>
+                            <textarea id="inpCertifications" rows="3" oninput="syncFromInputs()" placeholder="Google UX Design Certificate&#10;Forbes 30 Under 30 Nominee" class="w-full px-4 py-2.5 rounded-xl bg-alabaster border border-obsidian/15 text-sm focus:outline-none focus:border-rosegold"></textarea>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- =========================================================== -->
+                <!-- TAB 5: DESIGN STUDIO (4 TEMPLATES, FONTS & 6 PALETTES)      -->
+                <!-- =========================================================== -->
+                <section id="panel-design" class="editor-panel hidden bg-white rounded-3xl p-6 border border-obsidian/10 shadow-studio space-y-6">
+                    <div class="border-b border-obsidian/10 pb-3">
+                        <span class="text-[10px] font-bold uppercase tracking-[0.22em] text-rosegold">Atelier Customization</span>
+                        <h2 class="font-serif text-2xl font-semibold text-obsidian">Templates, Typography &amp; Colors</h2>
+                    </div>
+
+                    <!-- 4 Studio-Grade Templates -->
+                    <div class="space-y-3">
+                        <label class="block text-xs font-bold uppercase tracking-wider text-obsidian">1. Select CV Architecture</label>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                            
+                            <!-- Template 1: Executive Noir -->
+                            <button type="button" onclick="setTemplate('noir')" id="tpl-btn-noir" class="tpl-card active p-3.5 rounded-2xl border-2 border-obsidian bg-cream/60 text-left transition flex items-center gap-3.5">
+                                <div class="w-10 h-12 rounded-lg bg-obsidian flex overflow-hidden shrink-0 shadow-sm">
+                                    <div class="w-1/3 bg-rosegold h-full"></div>
+                                    <div class="w-2/3 bg-white h-full p-1 space-y-1">
+                                        <div class="h-1 bg-obsidian/30 rounded w-3/4"></div>
+                                        <div class="h-1 bg-obsidian/15 rounded w-full"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <p class="text-xs font-bold text-obsidian">Executive Noir</p>
+                                    <p class="text-[10px] text-charcoal/65">Sidebar &amp; Timeline</p>
+                                </div>
+                            </button>
+
+                            <!-- Template 2: Modern Editorial -->
+                            <button type="button" onclick="setTemplate('editorial')" id="tpl-btn-editorial" class="tpl-card p-3.5 rounded-2xl border border-obsidian/15 bg-white hover:bg-cream/40 text-left transition flex items-center gap-3.5">
+                                <div class="w-10 h-12 rounded-lg border border-obsidian/20 bg-alabaster flex flex-col overflow-hidden shrink-0 p-1.5 space-y-1">
+                                    <div class="h-2 bg-obsidian w-3/4 mx-auto rounded-sm"></div>
+                                    <div class="h-0.5 bg-rosegold w-full"></div>
+                                    <div class="grid grid-cols-2 gap-1 pt-1">
+                                        <div class="h-5 bg-obsidian/10 rounded-sm"></div>
+                                        <div class="h-5 bg-obsidian/10 rounded-sm"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <p class="text-xs font-bold text-obsidian">Modern Editorial</p>
+                                    <p class="text-[10px] text-charcoal/65">Magazine Serif Grid</p>
+                                </div>
+                            </button>
+
+                            <!-- Template 3: Corporate Minimal (ATS) -->
+                            <button type="button" onclick="setTemplate('ats')" id="tpl-btn-ats" class="tpl-card p-3.5 rounded-2xl border border-obsidian/15 bg-white hover:bg-cream/40 text-left transition flex items-center gap-3.5">
+                                <div class="w-10 h-12 rounded-lg border border-obsidian/20 bg-white flex flex-col overflow-hidden shrink-0 p-1.5 space-y-1">
+                                    <div class="h-1.5 bg-obsidian w-2/3 rounded-sm"></div>
+                                    <div class="h-px bg-obsidian/40 w-full"></div>
+                                    <div class="h-1 bg-obsidian/20 w-full rounded-sm"></div>
+                                    <div class="h-1 bg-obsidian/20 w-5/6 rounded-sm"></div>
+                                    <div class="h-px bg-obsidian/40 w-full"></div>
+                                    <div class="h-1 bg-obsidian/20 w-full rounded-sm"></div>
+                                </div>
+                                <div>
+                                    <p class="text-xs font-bold text-obsidian">Corporate ATS</p>
+                                    <p class="text-[10px] text-charcoal/65">Clean Single-Column</p>
+                                </div>
+                            </button>
+
+                            <!-- Template 4: Creative Split Header -->
+                            <button type="button" onclick="setTemplate('split')" id="tpl-btn-split" class="tpl-card p-3.5 rounded-2xl border border-obsidian/15 bg-white hover:bg-cream/40 text-left transition flex items-center gap-3.5">
+                                <div class="w-10 h-12 rounded-lg border border-obsidian/20 bg-white flex flex-col overflow-hidden shrink-0">
+                                    <div class="h-4 bg-obsidian w-full relative">
+                                        <div class="w-2.5 h-2.5 rounded-full bg-rosegold absolute -bottom-1 right-1.5 border border-white"></div>
+                                    </div>
+                                    <div class="p-1.5 pt-2 space-y-1">
+                                        <div class="h-1.5 bg-cream rounded w-full"></div>
+                                        <div class="h-1.5 bg-cream rounded w-full"></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <p class="text-xs font-bold text-obsidian">Creative Split</p>
+                                    <p class="text-[10px] text-charcoal/65">Bold Banner &amp; Cards</p>
+                                </div>
+                            </button>
+
+                        </div>
+                    </div>
+
+                    <!-- Typography Pairing Selector -->
+                    <div class="space-y-2.5 pt-2 border-t border-obsidian/10">
+                        <label class="block text-xs font-bold uppercase tracking-wider text-obsidian">2. Typography Pairing</label>
+                        <div class="grid grid-cols-3 gap-2.5">
+                            <button type="button" onclick="setFontPairing('editorial', this)" class="font-pair-btn active p-3 rounded-2xl border-2 border-obsidian bg-cream/60 text-center transition">
+                                <span class="font-serif text-lg font-bold block leading-none">Aa</span>
+                                <span class="text-[10px] font-semibold text-charcoal mt-1 block">Editorial Serif</span>
+                            </button>
+                            <button type="button" onclick="setFontPairing('modern', this)" class="font-pair-btn p-3 rounded-2xl border border-obsidian/15 bg-white hover:bg-cream/40 text-center transition">
+                                <span class="font-sans text-lg font-bold block leading-none">Aa</span>
+                                <span class="text-[10px] font-semibold text-charcoal mt-1 block">Modern Sans</span>
+                            </button>
+                            <button type="button" onclick="setFontPairing('classic', this)" class="font-pair-btn p-3 rounded-2xl border border-obsidian/15 bg-white hover:bg-cream/40 text-center transition">
+                                <span class="font-playfair text-lg font-bold block leading-none">Aa</span>
+                                <span class="text-[10px] font-semibold text-charcoal mt-1 block">Classic Executive</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- 6 Luxury Color Palettes -->
+                    <div class="space-y-2.5 pt-2 border-t border-obsidian/10">
+                        <label class="block text-xs font-bold uppercase tracking-wider text-obsidian">3. Luxury Color Palette</label>
+                        <div class="grid grid-cols-2 sm:grid-cols-3 gap-2.5">
+                            <button type="button" onclick="setColorPalette('#141416', '#B6836F', '#F7F3EF', this)" class="palette-btn active flex items-center gap-2.5 p-2.5 rounded-2xl border-2 border-obsidian bg-cream/50 text-left transition">
+                                <span class="w-6 h-6 rounded-full shrink-0 shadow-inner" style="background: linear-gradient(135deg, #141416 50%, #B6836F 50%);"></span>
+                                <span class="text-[11px] font-bold text-obsidian leading-tight">Obsidian &amp; Rose</span>
+                            </button>
+                            <button type="button" onclick="setColorPalette('#102542', '#C59B5F', '#F2F5F9', this)" class="palette-btn flex items-center gap-2.5 p-2.5 rounded-2xl border border-obsidian/15 bg-white hover:bg-cream/40 text-left transition">
+                                <span class="w-6 h-6 rounded-full shrink-0 shadow-inner" style="background: linear-gradient(135deg, #102542 50%, #C59B5F 50%);"></span>
+                                <span class="text-[11px] font-bold text-obsidian leading-tight">Royal Navy</span>
+                            </button>
+                            <button type="button" onclick="setColorPalette('#11352B', '#C29B61', '#F2F7F5', this)" class="palette-btn flex items-center gap-2.5 p-2.5 rounded-2xl border border-obsidian/15 bg-white hover:bg-cream/40 text-left transition">
+                                <span class="w-6 h-6 rounded-full shrink-0 shadow-inner" style="background: linear-gradient(135deg, #11352B 50%, #C29B61 50%);"></span>
+                                <span class="text-[11px] font-bold text-obsidian leading-tight">Emerald &amp; Gold</span>
+                            </button>
+                            <button type="button" onclick="setColorPalette('#4A1C24', '#D49A89', '#FAF3F4', this)" class="palette-btn flex items-center gap-2.5 p-2.5 rounded-2xl border border-obsidian/15 bg-white hover:bg-cream/40 text-left transition">
+                                <span class="w-6 h-6 rounded-full shrink-0 shadow-inner" style="background: linear-gradient(135deg, #4A1C24 50%, #D49A89 50%);"></span>
+                                <span class="text-[11px] font-bold text-obsidian leading-tight">Burgundy Silk</span>
+                            </button>
+                            <button type="button" onclick="setColorPalette('#2C3539', '#C87D55', '#F5F6F7', this)" class="palette-btn flex items-center gap-2.5 p-2.5 rounded-2xl border border-obsidian/15 bg-white hover:bg-cream/40 text-left transition">
+                                <span class="w-6 h-6 rounded-full shrink-0 shadow-inner" style="background: linear-gradient(135deg, #2C3539 50%, #C87D55 50%);"></span>
+                                <span class="text-[11px] font-bold text-obsidian leading-tight">Slate Terracotta</span>
+                            </button>
+                            <button type="button" onclick="setColorPalette('#1E2229', '#7D8794', '#F4F5F7', this)" class="palette-btn flex items-center gap-2.5 p-2.5 rounded-2xl border border-obsidian/15 bg-white hover:bg-cream/40 text-left transition">
+                                <span class="w-6 h-6 rounded-full shrink-0 shadow-inner" style="background: linear-gradient(135deg, #1E2229 50%, #7D8794 50%);"></span>
+                                <span class="text-[11px] font-bold text-obsidian leading-tight">Midnight Silver</span>
+                            </button>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+
+            <!-- =============================================================== -->
+            <!-- RIGHT COLUMN: LIVE INTERACTIVE A4 PREVIEW WORKSPACE (7 Cols)    -->
+            <!-- =============================================================== -->
+            <div class="lg:col-span-7 space-y-3">
+                
+                <!-- Preview Canvas Control Bar (Zoom & Info) -->
+                <div class="bg-white/90 backdrop-blur-md px-4 py-2.5 rounded-2xl border border-obsidian/10 flex flex-wrap items-center justify-between gap-3 shadow-sm">
+                    <div class="flex items-center gap-2">
+                        <span class="px-2.5 py-1 rounded-lg bg-cream text-[10px] font-bold uppercase tracking-widest text-obsidian">
+                            A4 &bull; 210 &times; 297 mm
+                        </span>
+                        <span id="activeTemplateBadge" class="text-xs font-semibold text-rosegoldDark">Executive Noir</span>
+                    </div>
+
+                    <!-- Zoom Controls -->
+                    <div class="flex items-center gap-1.5 bg-alabaster p-1 rounded-xl border border-obsidian/10">
+                        <button type="button" onclick="setPreviewZoom(0.75)" class="zoom-btn px-2.5 py-1 rounded-lg text-[11px] font-bold text-charcoal hover:bg-white transition">75%</button>
+                        <button type="button" onclick="setPreviewZoom(0.9)" class="zoom-btn px-2.5 py-1 rounded-lg text-[11px] font-bold text-charcoal hover:bg-white transition">90%</button>
+                        <button type="button" onclick="setPreviewZoom(1)" class="zoom-btn active px-2.5 py-1 rounded-lg text-[11px] font-bold bg-obsidian text-white transition">100%</button>
+                    </div>
+                </div>
+
+                <!-- Scrollable Paper Stage -->
+                <div class="bg-cream/80 p-4 sm:p-8 rounded-[2rem] border border-obsidian/10 overflow-x-auto min-h-[820px] flex justify-center">
+                    
+                    <!-- EXACT A4 SHEET TARGETED FOR PDF EXPORT -->
+                    <div id="cvDocument" class="a4-paper shadow-paper font-pair-editorial text-obsidian">
+                        <!-- Dynamically rendered CV layout -->
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Floating Studio Toast Notification -->
+    <div id="studioToast" class="fixed bottom-6 right-6 z-50 transform translate-y-24 opacity-0 transition-all duration-300 pointer-events-none">
+        <div class="bg-obsidian text-alabaster px-5 py-3.5 rounded-2xl shadow-2xl border border-rosegold/40 flex items-center gap-3">
+            <span class="w-7 h-7 rounded-full bg-rosegold text-white flex items-center justify-center text-xs">
+                <i class="fa-solid fa-sparkles"></i>
+            </span>
+            <p id="studioToastMsg" class="text-xs font-semibold tracking-wide">Action completed</p>
+        </div>
+    </div>
+
+    <!-- ===================================================================== -->
+    <!-- JAVASCRIPT STUDIO ENGINE                                              -->
+    <!-- ===================================================================== -->
+    <script>
+        const STORAGE_KEY = 'anumta_naeem_cv_studio_v2';
+
+        // Default Executive Sample Data
+        const DEFAULT_SAMPLE_DATA = {
+            photo: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=300&q=80",
+            showPhoto: true,
+            photoShape: "circle", // 'circle' or 'rounded'
+            name: "Anumta Naeem",
+            role: "Creative Director & Senior Brand Strategist",
+            email: "hello@anumtanaeem.com",
+            phone: "+92 300 8294012",
+            location: "Karachi, Pakistan",
+            website: "linkedin.com/in/anumtanaeem",
+            summary: "Award-winning Creative Director with 6+ years of experience crafting luxury brand identities, digital flagship experiences, and editorial campaigns. Adept at leading multidisciplinary design teams and scaling luxury retail & tech ventures across South Asia and the Middle East.",
+            experiences: [
+                {
+                    id: 1,
+                    role: "Founder & Creative Director",
+                    company: "Anumta Naeem Atelier & Digital Studio",
+                    duration: "2023 — Present",
+                    description: "Directed brand identity, UX architecture, and e-commerce launches for 25+ luxury fashion and lifestyle brands, driving a 65% average uplift in client conversion."
+                },
+                {
+                    id: 2,
+                    role: "Senior Product & Brand Designer",
+                    company: "Maison Lumière Interactive",
+                    duration: "2020 — 2023",
+                    description: "Spearheaded responsive web applications and editorial design systems. Partnered with engineering leads to reduce design-to-development handoff time by 40%."
+                }
+            ],
+            educations: [
+                {
+                    id: 1,
+                    degree: "BFA in Communication & Visual Design",
+                    institution: "Indus Valley School of Art and Architecture",
+                    year: "2016 — 2020"
+                },
+                {
+                    id: 2,
+                    degree: "Executive Program in Luxury Brand Strategy",
+                    institution: "SDA Bocconi School of Management",
+                    year: "2022"
+                }
+            ],
+            projects: [
+                {
+                    id: 1,
+                    title: "Anumta Naeem Luxury Maison E-Commerce",
+                    tech: "UI/UX • Tailwind • JavaScript",
+                    link: "anumtanaeem.com/maison",
+                    description: "Designed and engineered a bespoke luxury storefront with real-time inventory management and editorial lookbooks."
+                },
+                {
+                    id: 2,
+                    title: "Zaraq FinTech Mobile Design System",
+                    tech: "Figma • Design Tokens • React",
+                    link: "behance.net/anumtanaeem",
+                    description: "Built a 120-component accessible mobile banking UI kit adopted across 4 product squads."
+                }
+            ],
+            skills: [
+                "Brand Strategy", "Art Direction", "UI/UX Design", "Design Systems",
+                "Luxury E-Commerce", "Editorial Typography", "Figma & Adobe CC", "Team Leadership"
+            ],
+            languages: "English (Fluent), Urdu (Native), Arabic (Conversational)",
+            certifications: "Google UX Design Professional Certificate\nDean's Honor List — IVS Class of 2020"
+        };
+
+        // Active Studio State
+        let state = {
+            template: 'noir', // 'noir', 'editorial', 'ats', 'split'
+            fontPair: 'editorial', // 'editorial', 'modern', 'classic'
+            colors: {
+                primary: '#141416',
+                accent: '#B6836F',
+                light: '#F7F3EF'
+            },
+            data: JSON.parse(JSON.stringify(DEFAULT_SAMPLE_DATA))
+        };
+
+        // --- 1. INITIALIZATION & AUTO-SAVE ---
+        window.addEventListener('DOMContentLoaded', () => {
+            loadFromLocalStorage();
+            populateAllInputs();
+            renderExperienceEditor();
+            renderEducationEditor();
+            renderProjectEditor();
+            renderSkillsEditor();
+            applyFontPairingClass();
+            renderCVDocument();
+            updateStrengthMeter();
+        });
+
+        function saveToLocalStorage() {
+            try {
+                localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+                const label = document.getElementById('autoSaveLabel');
+                if (label) {
+                    label.textContent = 'Saved just now';
+                    setTimeout(() => { label.textContent = 'Auto-saved to browser'; }, 1800);
+                }
+            } catch (e) {
+                console.warn('Storage quota exceeded or unavailable', e);
+            }
+        }
+
+        function loadFromLocalStorage() {
+            try {
+                const saved = localStorage.getItem(STORAGE_KEY);
+                if (saved) {
+                    const parsed = JSON.parse(saved);
+                    if (parsed && parsed.data) {
+                        state = { ...state, ...parsed };
+                    }
+                }
+            } catch (e) {
+                console.warn('Could not load saved state', e);
+            }
+        }
+
+        // --- 2. FORM SYNC & PHOTO CONTROLS ---
+        function populateAllInputs() {
+            const d = state.data;
+            document.getElementById('inpName').value = d.name || '';
+            document.getElementById('inpRole').value = d.role || '';
+            document.getElementById('inpEmail').value = d.email || '';
+            document.getElementById('inpPhone').value = d.phone || '';
+            document.getElementById('inpLocation').value = d.location || '';
+            document.getElementById('inpWebsite').value = d.website || '';
+            document.getElementById('inpSummary').value = d.summary || '';
+            document.getElementById('inpLanguages').value = d.languages || '';
+            document.getElementById('inpCertifications').value = d.certifications || '';
+
+            updatePhotoControlUI();
+        }
+
+        function syncFromInputs() {
+            const d = state.data;
+            d.name = document.getElementById('inpName').value;
+            d.role = document.getElementById('inpRole').value;
+            d.email = document.getElementById('inpEmail').value;
+            d.phone = document.getElementById('inpPhone').value;
+            d.location = document.getElementById('inpLocation').value;
+            d.website = document.getElementById('inpWebsite').value;
+            d.summary = document.getElementById('inpSummary').value;
+            d.languages = document.getElementById('inpLanguages').value;
+            d.certifications = document.getElementById('inpCertifications').value;
+
+            renderCVDocument();
+            updateStrengthMeter();
+            saveToLocalStorage();
+        }
+
+        function handlePhotoUpload(event) {
+            const file = event.target.files[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                state.data.photo = e.target.result;
+                state.data.showPhoto = true;
+                updatePhotoControlUI();
+                renderCVDocument();
+                saveToLocalStorage();
+                showToast('Portrait uploaded to CV');
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function togglePhotoVisibility() {
+            state.data.showPhoto = !state.data.showPhoto;
+            updatePhotoControlUI();
+            renderCVDocument();
+            saveToLocalStorage();
+        }
+
+        function togglePhotoShape() {
+            state.data.photoShape = state.data.photoShape === 'circle' ? 'rounded' : 'circle';
+            updatePhotoControlUI();
+            renderCVDocument();
+            saveToLocalStorage();
+        }
+
+        function updatePhotoControlUI() {
+            const thumb = document.getElementById('editorPhotoThumb');
+            const visBtn = document.getElementById('togglePhotoBtn');
+            const shapeBtn = document.getElementById('toggleShapeBtn');
+
+            thumb.src = state.data.photo || 'https://placehold.co/150x150/EFECE6/141416?text=AN';
+            thumb.className = `w-16 h-16 object-cover border-2 border-rosegold shadow-sm shrink-0 transition-all ${state.data.photoShape === 'circle' ? 'rounded-full' : 'rounded-2xl'} ${state.data.showPhoto ? 'opacity-100' : 'opacity-35 grayscale'}`;
+
+            visBtn.innerHTML = state.data.showPhoto
+                ? `<i class="fa-regular fa-eye text-emerald-700"></i> Visible`
+                : `<i class="fa-regular fa-eye-slash text-rose-600"></i> Hidden`;
+
+            shapeBtn.innerHTML = state.data.photoShape === 'circle'
+                ? `<i class="fa-regular fa-circle"></i> Circle`
+                : `<i class="fa-regular fa-square"></i> Squircle`;
+        }
+
+        // --- 3. DYNAMIC LIST EDITORS (EXPERIENCE, EDUCATION, PROJECTS, SKILLS) ---
+        function renderExperienceEditor() {
+            const container = document.getElementById('experienceListEditor');
+            if (state.data.experiences.length === 0) {
+                container.innerHTML = `<p class="text-xs text-center text-charcoal/50 py-6 bg-alabaster rounded-2xl border border-dashed border-obsidian/15">No experience added yet. Click "+ Add Role" above.</p>`;
+                return;
+            }
+            container.innerHTML = state.data.experiences.map((exp, i) => `
+                <div class="p-4 rounded-2xl bg-alabaster border border-obsidian/10 space-y-3">
+                    <div class="flex items-center justify-between">
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-rosegoldDark">Role #${i + 1}</span>
+                        <button type="button" onclick="removeExperienceItem(${exp.id})" class="text-xs text-charcoal/50 hover:text-rose-600"><i class="fa-solid fa-trash-can"></i></button>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <input type="text" value="${escapeHtml(exp.role)}" oninput="updateListField('experiences', ${exp.id}, 'role', this.value)" placeholder="Job Title" class="px-3.5 py-2 rounded-xl bg-white border border-obsidian/15 text-xs font-bold focus:outline-none focus:border-rosegold">
+                        <input type="text" value="${escapeHtml(exp.company)}" oninput="updateListField('experiences', ${exp.id}, 'company', this.value)" placeholder="Organization" class="px-3.5 py-2 rounded-xl bg-white border border-obsidian/15 text-xs focus:outline-none focus:border-rosegold">
+                    </div>
+                    <input type="text" value="${escapeHtml(exp.duration)}" oninput="updateListField('experiences', ${exp.id}, 'duration', this.value)" placeholder="2022 — Present" class="w-full px-3.5 py-2 rounded-xl bg-white border border-obsidian/15 text-xs focus:outline-none focus:border-rosegold">
+                    <textarea rows="2" oninput="updateListField('experiences', ${exp.id}, 'description', this.value)" placeholder="Key achievements & measurable results..." class="w-full px-3.5 py-2 rounded-xl bg-white border border-obsidian/15 text-xs focus:outline-none focus:border-rosegold">${escapeHtml(exp.description)}</textarea>
+                </div>
+            `).join('');
+        }
+
+        function addExperienceItem() {
+            state.data.experiences.push({
+                id: Date.now(),
+                role: "Senior Specialist",
+                company: "Company / Organization",
+                duration: "2024 — Present",
+                description: "Led strategic initiatives, collaborated with cross-functional teams, and delivered measurable outcomes."
+            });
+            renderExperienceEditor();
+            renderCVDocument();
+            updateStrengthMeter();
+            saveToLocalStorage();
+        }
+
+        function removeExperienceItem(id) {
+            state.data.experiences = state.data.experiences.filter(item => item.id !== id);
+            renderExperienceEditor();
+            renderCVDocument();
+            updateStrengthMeter();
+            saveToLocalStorage();
+        }
+
+        function renderEducationEditor() {
+            const container = document.getElementById('educationListEditor');
+            if (state.data.educations.length === 0) {
+                container.innerHTML = `<p class="text-xs text-center text-charcoal/50 py-6 bg-alabaster rounded-2xl border border-dashed border-obsidian/15">No education entries yet. Click "+ Add Degree" above.</p>`;
+                return;
+            }
+            container.innerHTML = state.data.educations.map((edu, i) => `
+                <div class="p-4 rounded-2xl bg-alabaster border border-obsidian/10 space-y-3">
+                    <div class="flex items-center justify-between">
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-rosegoldDark">Degree #${i + 1}</span>
+                        <button type="button" onclick="removeEducationItem(${edu.id})" class="text-xs text-charcoal/50 hover:text-rose-600"><i class="fa-solid fa-trash-can"></i></button>
+                    </div>
+                    <input type="text" value="${escapeHtml(edu.degree)}" oninput="updateListField('educations', ${edu.id}, 'degree', this.value)" placeholder="Degree / Qualification" class="w-full px-3.5 py-2 rounded-xl bg-white border border-obsidian/15 text-xs font-bold focus:outline-none focus:border-rosegold">
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                        <input type="text" value="${escapeHtml(edu.institution)}" oninput="updateListField('educations', ${edu.id}, 'institution', this.value)" placeholder="University / Institute" class="sm:col-span-2 px-3.5 py-2 rounded-xl bg-white border border-obsidian/15 text-xs focus:outline-none focus:border-rosegold">
+                        <input type="text" value="${escapeHtml(edu.year)}" oninput="updateListField('educations', ${edu.id}, 'year', this.value)" placeholder="Year" class="px-3.5 py-2 rounded-xl bg-white border border-obsidian/15 text-xs focus:outline-none focus:border-rosegold">
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function addEducationItem() {
+            state.data.educations.push({
+                id: Date.now(),
+                degree: "Bachelor / Master of Science",
+                institution: "University Name",
+                year: "2020 — 2024"
+            });
+            renderEducationEditor();
+            renderCVDocument();
+            updateStrengthMeter();
+            saveToLocalStorage();
+        }
+
+        function removeEducationItem(id) {
+            state.data.educations = state.data.educations.filter(item => item.id !== id);
+            renderEducationEditor();
+            renderCVDocument();
+            updateStrengthMeter();
+            saveToLocalStorage();
+        }
+
+        function renderProjectEditor() {
+            const container = document.getElementById('projectListEditor');
+            if (state.data.projects.length === 0) {
+                container.innerHTML = `<p class="text-xs text-center text-charcoal/50 py-4 bg-alabaster rounded-2xl border border-dashed border-obsidian/15">No projects added yet.</p>`;
+                return;
+            }
+            container.innerHTML = state.data.projects.map((proj, i) => `
+                <div class="p-3.5 rounded-2xl bg-alabaster border border-obsidian/10 space-y-2.5">
+                    <div class="flex items-center justify-between">
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-rosegoldDark">Project #${i + 1}</span>
+                        <button type="button" onclick="removeProjectItem(${proj.id})" class="text-xs text-charcoal/50 hover:text-rose-600"><i class="fa-solid fa-trash-can"></i></button>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                        <input type="text" value="${escapeHtml(proj.title)}" oninput="updateListField('projects', ${proj.id}, 'title', this.value)" placeholder="Project Title" class="px-3 py-2 rounded-xl bg-white border border-obsidian/15 text-xs font-bold focus:outline-none focus:border-rosegold">
+                        <input type="text" value="${escapeHtml(proj.tech)}" oninput="updateListField('projects', ${proj.id}, 'tech', this.value)" placeholder="Role / Stack" class="px-3 py-2 rounded-xl bg-white border border-obsidian/15 text-xs focus:outline-none focus:border-rosegold">
+                    </div>
+                    <textarea rows="2" oninput="updateListField('projects', ${proj.id}, 'description', this.value)" placeholder="Brief project outcome..." class="w-full px-3 py-2 rounded-xl bg-white border border-obsidian/15 text-xs focus:outline-none focus:border-rosegold">${escapeHtml(proj.description)}</textarea>
+                </div>
+            `).join('');
+        }
+
+        function addProjectItem() {
+            state.data.projects.push({
+                id: Date.now(),
+                title: "Signature Flagship Project",
+                tech: "Strategy • Design • Execution",
+                link: "",
+                description: "Architected and launched a high-impact solution delivering measurable user growth."
+            });
+            renderProjectEditor();
+            renderCVDocument();
+            saveToLocalStorage();
+        }
+
+        function removeProjectItem(id) {
+            state.data.projects = state.data.projects.filter(item => item.id !== id);
+            renderProjectEditor();
+            renderCVDocument();
+            saveToLocalStorage();
+        }
+
+        function updateListField(listKey, id, field, value) {
+            const item = state.data[listKey].find(el => el.id === id);
+            if (item) {
+                item[field] = value;
+                renderCVDocument();
+                saveToLocalStorage();
+            }
+        }
+
+        function renderSkillsEditor() {
+            const container = document.getElementById('skillsEditorContainer');
+            container.innerHTML = state.data.skills.map((skill, idx) => `
+                <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-cream border border-obsidian/10 text-xs font-semibold text-obsidian">
+                    ${escapeHtml(skill)}
+                    <button type="button" onclick="removeSkillItem(${idx})" class="text-charcoal/50 hover:text-rose-600 font-bold">&times;</button>
+                </span>
+            `).join('');
+        }
+
+        function addSkillItem() {
+            const inp = document.getElementById('skillInputBox');
+            const val = inp.value.trim();
+            if (!val) return;
+            state.data.skills.push(val);
+            inp.value = '';
+            renderSkillsEditor();
+            renderCVDocument();
+            updateStrengthMeter();
+            saveToLocalStorage();
+        }
+
+        function removeSkillItem(index) {
+            state.data.skills.splice(index, 1);
+            renderSkillsEditor();
+            renderCVDocument();
+            updateStrengthMeter();
+            saveToLocalStorage();
+        }
+
+        // --- 4. DESIGN CONTROLS (TEMPLATES, FONTS, PALETTES, ZOOM) ---
+        function setTemplate(tpl) {
+            state.template = tpl;
+            document.querySelectorAll('.tpl-card').forEach(btn => {
+                btn.classList.remove('border-2', 'border-obsidian', 'bg-cream/60');
+                btn.classList.add('border', 'border-obsidian/15', 'bg-white');
+            });
+            const activeBtn = document.getElementById(`tpl-btn-${tpl}`);
+            if (activeBtn) {
+                activeBtn.classList.remove('border', 'border-obsidian/15', 'bg-white');
+                activeBtn.classList.add('border-2', 'border-obsidian', 'bg-cream/60');
+            }
+
+            const names = {
+                noir: 'Executive Noir',
+                editorial: 'Modern Editorial',
+                ats: 'Corporate ATS Minimal',
+                split: 'Creative Split Header'
+            };
+            document.getElementById('activeTemplateBadge').textContent = names[tpl] || 'Executive';
+            renderCVDocument();
+            saveToLocalStorage();
+        }
+
+        function setFontPairing(pair, btnEl) {
+            state.fontPair = pair;
+            document.querySelectorAll('.font-pair-btn').forEach(b => {
+                b.className = "font-pair-btn p-3 rounded-2xl border border-obsidian/15 bg-white hover:bg-cream/40 text-center transition";
+            });
+            btnEl.className = "font-pair-btn active p-3 rounded-2xl border-2 border-obsidian bg-cream/60 text-center transition";
+            applyFontPairingClass();
+            saveToLocalStorage();
+        }
+
+        function applyFontPairingClass() {
+            const doc = document.getElementById('cvDocument');
+            doc.classList.remove('font-pair-editorial', 'font-pair-modern', 'font-pair-classic');
+            doc.classList.add(`font-pair-${state.fontPair}`);
+        }
+
+        function setColorPalette(primary, accent, light, btnEl) {
+            state.colors = { primary, accent, light };
+            document.querySelectorAll('.palette-btn').forEach(b => {
+                b.className = "palette-btn flex items-center gap-2.5 p-2.5 rounded-2xl border border-obsidian/15 bg-white hover:bg-cream/40 text-left transition";
+            });
+            btnEl.className = "palette-btn active flex items-center gap-2.5 p-2.5 rounded-2xl border-2 border-obsidian bg-cream/50 text-left transition";
+            renderCVDocument();
+            saveToLocalStorage();
+        }
+
+        function setPreviewZoom(scale) {
+            const doc = document.getElementById('cvDocument');
+            doc.style.transform = `scale(${scale})`;
+            document.querySelectorAll('.zoom-btn').forEach(btn => {
+                btn.className = "zoom-btn px-2.5 py-1 rounded-lg text-[11px] font-bold text-charcoal hover:bg-white transition";
+            });
+            event.target.className = "zoom-btn active px-2.5 py-1 rounded-lg text-[11px] font-bold bg-obsidian text-white transition";
+        }
+
+        function switchEditorTab(tabName, btnEl) {
+            document.querySelectorAll('.editor-tab-btn').forEach(b => {
+                if (b.id === 'designTabSpecial') return;
+                b.className = "editor-tab-btn flex-1 py-2.5 px-3 rounded-2xl text-xs font-semibold text-charcoal hover:bg-cream/70 transition whitespace-nowrap flex items-center justify-center gap-1.5";
+            });
+            btnEl.className = "editor-tab-btn active flex-1 py-2.5 px-3 rounded-2xl text-xs font-bold bg-obsidian text-alabaster transition whitespace-nowrap flex items-center justify-center gap-1.5";
+
+            document.querySelectorAll('.editor-panel').forEach(p => p.classList.add('hidden'));
+            document.getElementById(`panel-${tabName}`).classList.remove('hidden');
+        }
+
+        // --- 5. CV COMPLETENESS / STRENGTH METER ---
+        function updateStrengthMeter() {
+            const d = state.data;
+            let score = 0;
+            if (d.name.trim()) score += 15;
+            if (d.role.trim()) score += 10;
+            if (d.email.trim() && d.phone.trim()) score += 15;
+            if (d.summary.trim().length > 30) score += 15;
+            if (d.experiences.length > 0) score += 20;
+            if (d.educations.length > 0) score += 10;
+            if (d.skills.length >= 3) score += 10;
+            if (d.projects.length > 0 || d.certifications.trim()) score += 5;
+
+            const pct = Math.min(100, score);
+            ['strengthProgressBar', 'strengthProgressBarMobile'].forEach(id => {
+                const el = document.getElementById(id);
+                if (el) el.style.width = `${pct}%`;
+            });
+            ['strengthPercentLabel', 'strengthPercentLabelMobile'].forEach(id => {
+                const el = document.getElementById(id);
+                if (el) el.textContent = `${pct}%`;
+            });
+        }
+
+        // --- 6. MULTI-TEMPLATE A4 RENDERING ENGINE ---
+        function renderCVDocument() {
+            const doc = document.getElementById('cvDocument');
+            const d = state.data;
+            const { primary, accent, light } = state.colors;
+            const certList = (d.certifications || '').split('\n').map(s => s.trim()).filter(Boolean);
+            const photoRadius = d.photoShape === 'circle' ? 'rounded-full' : 'rounded-2xl';
+
+            // TEMPLATE 1: EXECUTIVE NOIR (2-Column Dark Sidebar + Timeline)
+            if (state.template === 'noir') {
+                doc.innerHTML = `
+                    <div class="grid grid-cols-12 min-h-[297mm] cv-b-font">
+                        <!-- Left Sidebar -->
+                        <div class="col-span-4 p-8 text-white flex flex-col justify-between" style="background-color: ${primary};">
+                            <div class="space-y-7">
+                                ${d.showPhoto && d.photo ? `
+                                    <div class="flex justify-center">
+                                        <img src="${d.photo}" alt="Portrait" class="w-32 h-32 ${photoRadius} object-cover border-4 shadow-lg" style="border-color: ${accent};">
+                                    </div>
+                                ` : ''}
+
+                                <!-- Contact -->
+                                <div class="space-y-3">
+                                    <h3 class="text-[10px] font-bold uppercase tracking-[0.24em] pb-1.5 border-b border-white/15" style="color: ${accent};">Contact</h3>
+                                    <ul class="space-y-2.5 text-[11px] text-white/85 break-words">
+                                        ${d.email ? `<li class="flex items-start gap-2.5"><i class="fa-solid fa-envelope mt-0.5 text-[10px]" style="color: ${accent};"></i><span>${escapeHtml(d.email)}</span></li>` : ''}
+                                        ${d.phone ? `<li class="flex items-start gap-2.5"><i class="fa-solid fa-phone mt-0.5 text-[10px]" style="color: ${accent};"></i><span>${escapeHtml(d.phone)}</span></li>` : ''}
+                                        ${d.location ? `<li class="flex items-start gap-2.5"><i class="fa-solid fa-location-dot mt-0.5 text-[10px]" style="color: ${accent};"></i><span>${escapeHtml(d.location)}</span></li>` : ''}
+                                        ${d.website ? `<li class="flex items-start gap-2.5"><i class="fa-solid fa-link mt-0.5 text-[10px]" style="color: ${accent};"></i><span>${escapeHtml(d.website)}</span></li>` : ''}
+                                    </ul>
+                                </div>
+
+                                <!-- Expertise -->
+                                ${d.skills.length > 0 ? `
+                                    <div class="space-y-3">
+                                        <h3 class="text-[10px] font-bold uppercase tracking-[0.24em] pb-1.5 border-b border-white/15" style="color: ${accent};">Expertise</h3>
+                                        <div class="flex flex-wrap gap-1.5">
+                                            ${d.skills.map(s => `<span class="px-2.5 py-1 rounded-md text-[10px] font-medium bg-white/10 text-white/95">${escapeHtml(s)}</span>`).join('')}
+                                        </div>
+                                    </div>
+                                ` : ''}
+
+                                <!-- Languages -->
+                                ${d.languages ? `
+                                    <div class="space-y-2">
+                                        <h3 class="text-[10px] font-bold uppercase tracking-[0.24em] pb-1.5 border-b border-white/15" style="color: ${accent};">Languages</h3>
+                                        <p class="text-[11px] text-white/80 leading-relaxed">${escapeHtml(d.languages)}</p>
+                                    </div>
+                                ` : ''}
+
+                                <!-- Certifications -->
+                                ${certList.length > 0 ? `
+                                    <div class="space-y-2">
+                                        <h3 class="text-[10px] font-bold uppercase tracking-[0.24em] pb-1.5 border-b border-white/15" style="color: ${accent};">Credentials</h3>
+                                        <ul class="space-y-1.5 text-[11px] text-white/80">
+                                            ${certList.map(c => `<li class="flex items-start gap-2"><span style="color:${accent};">&bull;</span><span>${escapeHtml(c)}</span></li>`).join('')}
+                                        </ul>
+                                    </div>
+                                ` : ''}
+                            </div>
+                            <div class="pt-4 border-t border-white/10 text-[9px] uppercase tracking-[0.24em] text-white/35">
+                                Executive Dossier
+                            </div>
+                        </div>
+
+                        <!-- Right Content -->
+                        <div class="col-span-8 p-9 bg-white space-y-6">
+                            <div class="pb-5 border-b-2" style="border-color: ${light};">
+                                <h1 class="cv-h-font text-4xl font-bold tracking-tight" style="color: ${primary};">${escapeHtml(d.name || 'Your Full Name')}</h1>
+                                <p class="text-xs font-bold uppercase tracking-[0.22em] mt-2" style="color: ${accent};">${escapeHtml(d.role || 'Target Role')}</p>
+                            </div>
+
+                            ${d.summary ? `
+                                <div class="space-y-1.5">
+                                    <h2 class="text-[11px] font-bold uppercase tracking-[0.2em]" style="color: ${primary};">Executive Summary</h2>
+                                    <p class="text-xs text-gray-600 leading-relaxed">${escapeHtml(d.summary)}</p>
+                                </div>
+                            ` : ''}
+
+                            ${d.experiences.length > 0 ? `
+                                <div class="space-y-3.5">
+                                    <h2 class="text-[11px] font-bold uppercase tracking-[0.2em] pb-1 border-b" style="color: ${primary}; border-color: ${light};">Experience</h2>
+                                    <div class="space-y-4">
+                                        ${d.experiences.map(exp => `
+                                            <div class="relative pl-4 border-l-2" style="border-color: ${light};">
+                                                <span class="w-2 h-2 rounded-full absolute -left-[5px] top-1.5" style="background-color: ${accent};"></span>
+                                                <div class="flex items-baseline justify-between gap-2">
+                                                    <h3 class="cv-h-font text-base font-bold" style="color: ${primary};">${escapeHtml(exp.role)}</h3>
+                                                    <span class="text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full shrink-0" style="background-color: ${light}; color: ${accent};">${escapeHtml(exp.duration)}</span>
+                                                </div>
+                                                <p class="text-xs font-semibold text-gray-500">${escapeHtml(exp.company)}</p>
+                                                <p class="text-xs text-gray-600 leading-relaxed mt-1">${escapeHtml(exp.description)}</p>
+                                            </div>
+                                        `).join('')}
+                                    </div>
+                                </div>
+                            ` : ''}
+
+                            ${d.projects.length > 0 ? `
+                                <div class="space-y-3">
+                                    <h2 class="text-[11px] font-bold uppercase tracking-[0.2em] pb-1 border-b" style="color: ${primary}; border-color: ${light};">Selected Projects</h2>
+                                    <div class="grid grid-cols-2 gap-3">
+                                        ${d.projects.map(p => `
+                                            <div class="p-3 rounded-xl border" style="background-color: ${light}; border-color: rgba(0,0,0,0.04);">
+                                                <h4 class="text-xs font-bold" style="color: ${primary};">${escapeHtml(p.title)}</h4>
+                                                <p class="text-[10px] font-semibold mt-0.5" style="color: ${accent};">${escapeHtml(p.tech)}</p>
+                                                <p class="text-[11px] text-gray-600 mt-1 leading-snug">${escapeHtml(p.description)}</p>
+                                            </div>
+                                        `).join('')}
+                                    </div>
+                                </div>
+                            ` : ''}
+
+                            ${d.educations.length > 0 ? `
+                                <div class="space-y-3">
+                                    <h2 class="text-[11px] font-bold uppercase tracking-[0.2em] pb-1 border-b" style="color: ${primary}; border-color: ${light};">Education</h2>
+                                    <div class="space-y-2.5">
+                                        ${d.educations.map(edu => `
+                                            <div class="flex items-baseline justify-between gap-2">
+                                                <div>
+                                                    <h3 class="cv-h-font text-sm font-bold" style="color: ${primary};">${escapeHtml(edu.degree)}</h3>
+                                                    <p class="text-xs text-gray-500">${escapeHtml(edu.institution)}</p>
+                                                </div>
+                                                <span class="text-[11px] font-bold shrink-0" style="color: ${accent};">${escapeHtml(edu.year)}</span>
+                                            </div>
+                                        `).join('')}
+                                    </div>
+                                </div>
+                            ` : ''}
+                        </div>
+                    </div>
+                `;
+            }
+
+            // TEMPLATE 2: MODERN EDITORIAL (Magazine Serif Grid)
+            else if (state.template === 'editorial') {
+                doc.innerHTML = `
+                    <div class="p-11 min-h-[297mm] bg-white cv-b-font space-y-6">
+                        <!-- Top Centered Editorial Masthead -->
+                        <div class="text-center space-y-2 pb-6 border-b-2" style="border-color: ${primary};">
+                            ${d.showPhoto && d.photo ? `
+                                <img src="${d.photo}" alt="Portrait" class="w-24 h-24 ${photoRadius} object-cover mx-auto mb-3 border-2 shadow-sm" style="border-color: ${accent};">
+                            ` : ''}
+                            <p class="text-[10px] font-bold uppercase tracking-[0.3em]" style="color: ${accent};">${escapeHtml(d.role || 'Executive Portfolio')}</p>
+                            <h1 class="cv-h-font text-5xl font-bold tracking-tight" style="color: ${primary};">${escapeHtml(d.name || 'Your Full Name')}</h1>
+                            <div class="flex flex-wrap justify-center gap-x-5 gap-y-1 pt-2 text-[11px] text-gray-600">
+                                ${d.email ? `<span>${escapeHtml(d.email)}</span>` : ''}
+                                ${d.phone ? `<span>&bull; ${escapeHtml(d.phone)}</span>` : ''}
+                                ${d.location ? `<span>&bull; ${escapeHtml(d.location)}</span>` : ''}
+                                ${d.website ? `<span>&bull; ${escapeHtml(d.website)}</span>` : ''}
+                            </div>
+                        </div>
+
+                        <!-- Editorial Summary -->
+                        ${d.summary ? `
+                            <div class="px-6 py-4 rounded-2xl text-center" style="background-color: ${light};">
+                                <p class="text-xs text-gray-700 leading-relaxed italic">${escapeHtml(d.summary)}</p>
+                            </div>
+                        ` : ''}
+
+                        <!-- Two-Column Asymmetric Editorial Body -->
+                        <div class="grid grid-cols-12 gap-8 pt-2">
+                            <!-- Left 8 Cols: Experience & Projects -->
+                            <div class="col-span-8 space-y-6">
+                                ${d.experiences.length > 0 ? `
+                                    <div class="space-y-4">
+                                        <h2 class="cv-h-font text-xl font-bold pb-1 border-b" style="color: ${primary}; border-color: ${accent};">Experience</h2>
+                                        <div class="space-y-4">
+                                            ${d.experiences.map(exp => `
+                                                <div>
+                                                    <div class="flex justify-between items-baseline">
+                                                        <h3 class="text-sm font-bold" style="color: ${primary};">${escapeHtml(exp.role)}</h3>
+                                                        <span class="text-[10px] font-bold uppercase tracking-wider" style="color: ${accent};">${escapeHtml(exp.duration)}</span>
+                                                    </div>
+                                                    <p class="text-xs font-medium text-gray-500">${escapeHtml(exp.company)}</p>
+                                                    <p class="text-xs text-gray-600 leading-relaxed mt-1">${escapeHtml(exp.description)}</p>
+                                                </div>
+                                            `).join('')}
+                                        </div>
+                                    </div>
+                                ` : ''}
+
+                                ${d.projects.length > 0 ? `
+                                    <div class="space-y-3">
+                                        <h2 class="cv-h-font text-xl font-bold pb-1 border-b" style="color: ${primary}; border-color: ${accent};">Key Projects</h2>
+                                        <div class="space-y-3">
+                                            ${d.projects.map(p => `
+                                                <div>
+                                                    <div class="flex justify-between items-baseline">
+                                                        <h3 class="text-xs font-bold" style="color: ${primary};">${escapeHtml(p.title)}</h3>
+                                                        <span class="text-[10px] font-semibold" style="color: ${accent};">${escapeHtml(p.tech)}</span>
+                                                    </div>
+                                                    <p class="text-xs text-gray-600 mt-0.5">${escapeHtml(p.description)}</p>
+                                                </div>
+                                            `).join('')}
+                                        </div>
+                                    </div>
+                                ` : ''}
+                            </div>
+
+                            <!-- Right 4 Cols: Education, Skills, Languages -->
+                            <div class="col-span-4 space-y-6 border-l pl-6" style="border-color: ${light};">
+                                ${d.educations.length > 0 ? `
+                                    <div class="space-y-3">
+                                        <h2 class="cv-h-font text-lg font-bold" style="color: ${primary};">Education</h2>
+                                        <div class="space-y-3">
+                                            ${d.educations.map(edu => `
+                                                <div>
+                                                    <h3 class="text-xs font-bold" style="color: ${primary};">${escapeHtml(edu.degree)}</h3>
+                                                    <p class="text-[11px] text-gray-500">${escapeHtml(edu.institution)}</p>
+                                                    <span class="text-[10px] font-bold" style="color: ${accent};">${escapeHtml(edu.year)}</span>
+                                                </div>
+                                            `).join('')}
+                                        </div>
+                                    </div>
+                                ` : ''}
+
+                                ${d.skills.length > 0 ? `
+                                    <div class="space-y-2.5">
+                                        <h2 class="cv-h-font text-lg font-bold" style="color: ${primary};">Expertise</h2>
+                                        <div class="flex flex-wrap gap-1.5">
+                                            ${d.skills.map(s => `<span class="px-2.5 py-1 rounded text-[10px] font-semibold" style="background-color: ${light}; color: ${primary};">${escapeHtml(s)}</span>`).join('')}
+                                        </div>
+                                    </div>
+                                ` : ''}
+
+                                ${certList.length > 0 ? `
+                                    <div class="space-y-2">
+                                        <h2 class="cv-h-font text-lg font-bold" style="color: ${primary};">Honors</h2>
+                                        <ul class="space-y-1 text-[11px] text-gray-600">
+                                            ${certList.map(c => `<li>&bull; ${escapeHtml(c)}</li>`).join('')}
+                                        </ul>
+                                    </div>
+                                ` : ''}
+
+                                ${d.languages ? `
+                                    <div class="space-y-1.5">
+                                        <h2 class="cv-h-font text-lg font-bold" style="color: ${primary};">Languages</h2>
+                                        <p class="text-[11px] text-gray-600">${escapeHtml(d.languages)}</p>
+                                    </div>
+                                ` : ''}
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+
+            // TEMPLATE 3: CORPORATE MINIMAL (ATS-Friendly Classic Executive)
+            else if (state.template === 'ats') {
+                doc.innerHTML = `
+                    <div class="p-12 min-h-[297mm] bg-white cv-b-font space-y-5">
+                        <!-- Clean Single-Column Executive Header -->
+                        <div class="flex items-center justify-between border-b-2 pb-4" style="border-color: ${primary};">
+                            <div>
+                                <h1 class="cv-h-font text-3xl font-bold uppercase tracking-wider" style="color: ${primary};">${escapeHtml(d.name || 'Your Full Name')}</h1>
+                                <p class="text-xs font-bold uppercase tracking-widest mt-1" style="color: ${accent};">${escapeHtml(d.role || 'Target Role')}</p>
+                                <div class="flex flex-wrap gap-x-4 gap-y-1 mt-2.5 text-[11px] text-gray-700">
+                                    ${d.location ? `<span>${escapeHtml(d.location)}</span>` : ''}
+                                    ${d.phone ? `<span>| ${escapeHtml(d.phone)}</span>` : ''}
+                                    ${d.email ? `<span>| ${escapeHtml(d.email)}</span>` : ''}
+                                    ${d.website ? `<span>| ${escapeHtml(d.website)}</span>` : ''}
+                                </div>
+                            </div>
+                            ${d.showPhoto && d.photo ? `
+                                <img src="${d.photo}" alt="Portrait" class="w-20 h-20 ${photoRadius} object-cover border" style="border-color: ${primary};">
+                            ` : ''}
+                        </div>
+
+                        ${d.summary ? `
+                            <div>
+                                <h2 class="text-xs font-bold uppercase tracking-widest border-b pb-1 mb-2" style="color: ${primary}; border-color: #D1D5DB;">Professional Summary</h2>
+                                <p class="text-xs text-gray-700 leading-relaxed">${escapeHtml(d.summary)}</p>
+                            </div>
+                        ` : ''}
+
+                        ${d.experiences.length > 0 ? `
+                            <div>
+                                <h2 class="text-xs font-bold uppercase tracking-widest border-b pb-1 mb-3" style="color: ${primary}; border-color: #D1D5DB;">Professional Experience</h2>
+                                <div class="space-y-4">
+                                    ${d.experiences.map(exp => `
+                                        <div>
+                                            <div class="flex justify-between items-baseline">
+                                                <h3 class="text-xs font-bold" style="color: ${primary};">${escapeHtml(exp.role)} &mdash; <span class="font-semibold text-gray-600">${escapeHtml(exp.company)}</span></h3>
+                                                <span class="text-[11px] font-bold text-gray-700">${escapeHtml(exp.duration)}</span>
+                                            </div>
+                                            <p class="text-xs text-gray-700 leading-relaxed mt-1">${escapeHtml(exp.description)}</p>
+                                        </div>
+                                    `).join('')}
+                                </div>
+                            </div>
+                        ` : ''}
+
+                        ${d.projects.length > 0 ? `
+                            <div>
+                                <h2 class="text-xs font-bold uppercase tracking-widest border-b pb-1 mb-2.5" style="color: ${primary}; border-color: #D1D5DB;">Key Projects &amp; Initiatives</h2>
+                                <div class="space-y-2.5">
+                                    ${d.projects.map(p => `
+                                        <div>
+                                            <div class="flex justify-between">
+                                                <span class="text-xs font-bold" style="color: ${primary};">${escapeHtml(p.title)}</span>
+                                                <span class="text-[11px] text-gray-500">${escapeHtml(p.tech)}</span>
+                                            </div>
+                                            <p class="text-xs text-gray-700">${escapeHtml(p.description)}</p>
+                                        </div>
+                                    `).join('')}
+                                </div>
+                            </div>
+                        ` : ''}
+
+                        ${d.educations.length > 0 ? `
+                            <div>
+                                <h2 class="text-xs font-bold uppercase tracking-widest border-b pb-1 mb-2.5" style="color: ${primary}; border-color: #D1D5DB;">Education</h2>
+                                <div class="space-y-2">
+                                    ${d.educations.map(edu => `
+                                        <div class="flex justify-between text-xs">
+                                            <div>
+                                                <span class="font-bold" style="color: ${primary};">${escapeHtml(edu.degree)}</span>, <span class="text-gray-600">${escapeHtml(edu.institution)}</span>
+                                            </div>
+                                            <span class="font-bold text-gray-700">${escapeHtml(edu.year)}</span>
+                                        </div>
+                                    `).join('')}
+                                </div>
+                            </div>
+                        ` : ''}
+
+                        <div class="grid grid-cols-2 gap-6 pt-1">
+                            ${d.skills.length > 0 ? `
+                                <div>
+                                    <h2 class="text-xs font-bold uppercase tracking-widest border-b pb-1 mb-2" style="color: ${primary}; border-color: #D1D5DB;">Core Competencies</h2>
+                                    <p class="text-xs text-gray-700 leading-relaxed">${d.skills.map(s => escapeHtml(s)).join(' &bull; ')}</p>
+                                </div>
+                            ` : ''}
+                            <div>
+                                <h2 class="text-xs font-bold uppercase tracking-widest border-b pb-1 mb-2" style="color: ${primary}; border-color: #D1D5DB;">Languages &amp; Certifications</h2>
+                                ${d.languages ? `<p class="text-xs text-gray-700 mb-1"><strong>Languages:</strong> ${escapeHtml(d.languages)}</p>` : ''}
+                                ${certList.length > 0 ? `<p class="text-xs text-gray-700"><strong>Certifications:</strong> ${certList.map(c => escapeHtml(c)).join('; ')}</p>` : ''}
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+
+            // TEMPLATE 4: CREATIVE SPLIT HEADER (Bold Banner + Modern Cards)
+            else {
+                doc.innerHTML = `
+                    <div class="min-h-[297mm] bg-white cv-b-font flex flex-col">
+                        <!-- Bold Colored Header -->
+                        <div class="p-10 text-white flex items-center justify-between gap-6" style="background-color: ${primary};">
+                            <div class="space-y-2">
+                                <span class="px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest bg-white/10" style="color: ${accent};">Curriculum Vitae</span>
+                                <h1 class="cv-h-font text-4xl font-bold tracking-wide pt-1">${escapeHtml(d.name || 'Your Full Name')}</h1>
+                                <p class="text-xs uppercase tracking-[0.2em] text-white/85">${escapeHtml(d.role || 'Target Role')}</p>
+                                <div class="flex flex-wrap gap-4 pt-3 text-[11px] text-white/80">
+                                    ${d.email ? `<span><i class="fa-solid fa-envelope mr-1.5" style="color:${accent};"></i>${escapeHtml(d.email)}</span>` : ''}
+                                    ${d.phone ? `<span><i class="fa-solid fa-phone mr-1.5" style="color:${accent};"></i>${escapeHtml(d.phone)}</span>` : ''}
+                                    ${d.location ? `<span><i class="fa-solid fa-location-dot mr-1.5" style="color:${accent};"></i>${escapeHtml(d.location)}</span>` : ''}
+                                </div>
+                            </div>
+                            ${d.showPhoto && d.photo ? `
+                                <img src="${d.photo}" alt="Portrait" class="w-28 h-28 ${photoRadius} object-cover border-4 shadow-xl shrink-0" style="border-color: ${accent};">
+                            ` : ''}
+                        </div>
+
+                        <!-- Content Cards -->
+                        <div class="p-9 space-y-6 flex-1">
+                            ${d.summary ? `
+                                <div class="p-4 rounded-2xl border-l-4" style="background-color: ${light}; border-color: ${accent};">
+                                    <p class="text-xs text-gray-700 leading-relaxed">${escapeHtml(d.summary)}</p>
+                                </div>
+                            ` : ''}
+
+                            ${d.experiences.length > 0 ? `
+                                <div class="space-y-3">
+                                    <h2 class="text-xs font-bold uppercase tracking-[0.2em]" style="color: ${primary};">Work Experience</h2>
+                                    <div class="grid grid-cols-1 gap-3">
+                                        ${d.experiences.map(exp => `
+                                            <div class="p-4 rounded-2xl border border-gray-100 shadow-sm bg-white">
+                                                <div class="flex justify-between items-baseline">
+                                                    <h3 class="cv-h-font text-base font-bold" style="color: ${primary};">${escapeHtml(exp.role)}</h3>
+                                                    <span class="text-[10px] font-bold px-2.5 py-0.5 rounded-full" style="background-color: ${light}; color: ${accent};">${escapeHtml(exp.duration)}</span>
+                                                </div>
+                                                <p class="text-xs font-semibold text-gray-500">${escapeHtml(exp.company)}</p>
+                                                <p class="text-xs text-gray-600 mt-1.5 leading-relaxed">${escapeHtml(exp.description)}</p>
+                                            </div>
+                                        `).join('')}
+                                    </div>
+                                </div>
+                            ` : ''}
+
+                            <div class="grid grid-cols-12 gap-6">
+                                <div class="col-span-6 space-y-4">
+                                    ${d.educations.length > 0 ? `
+                                        <div class="space-y-2.5">
+                                            <h2 class="text-xs font-bold uppercase tracking-[0.2em]" style="color: ${primary};">Education</h2>
+                                            ${d.educations.map(edu => `
+                                                <div class="p-3 rounded-xl" style="background-color: ${light};">
+                                                    <h3 class="text-xs font-bold" style="color: ${primary};">${escapeHtml(edu.degree)}</h3>
+                                                    <p class="text-[11px] text-gray-600">${escapeHtml(edu.institution)} &bull; <strong style="color:${accent};">${escapeHtml(edu.year)}</strong></p>
+                                                </div>
+                                            `).join('')}
+                                        </div>
+                                    ` : ''}
+
+                                    ${d.projects.length > 0 ? `
+                                        <div class="space-y-2">
+                                            <h2 class="text-xs font-bold uppercase tracking-[0.2em]" style="color: ${primary};">Projects</h2>
+                                            ${d.projects.map(p => `
+                                                <div class="p-3 rounded-xl border border-gray-100">
+                                                    <h4 class="text-xs font-bold" style="color: ${primary};">${escapeHtml(p.title)}</h4>
+                                                    <p class="text-[11px] text-gray-600 mt-0.5">${escapeHtml(p.description)}</p>
+                                                </div>
+                                            `).join('')}
+                                        </div>
+                                    ` : ''}
+                                </div>
+
+                                <div class="col-span-6 space-y-4">
+                                    ${d.skills.length > 0 ? `
+                                        <div class="space-y-2.5">
+                                            <h2 class="text-xs font-bold uppercase tracking-[0.2em]" style="color: ${primary};">Core Skills</h2>
+                                            <div class="flex flex-wrap gap-1.5">
+                                                ${d.skills.map(s => `<span class="px-3 py-1 rounded-full text-[11px] font-semibold text-white" style="background-color: ${primary};">${escapeHtml(s)}</span>`).join('')}
+                                            </div>
+                                        </div>
+                                    ` : ''}
+
+                                    ${certList.length > 0 ? `
+                                        <div class="space-y-1.5">
+                                            <h2 class="text-xs font-bold uppercase tracking-[0.2em]" style="color: ${primary};">Certifications</h2>
+                                            <ul class="text-xs text-gray-600 space-y-1">
+                                                ${certList.map(c => `<li>&bull; ${escapeHtml(c)}</li>`).join('')}
+                                            </ul>
+                                        </div>
+                                    ` : ''}
+
+                                    ${d.languages ? `
+                                        <div class="space-y-1">
+                                            <h2 class="text-xs font-bold uppercase tracking-[0.2em]" style="color: ${primary};">Languages</h2>
+                                            <p class="text-xs text-gray-600">${escapeHtml(d.languages)}</p>
+                                        </div>
+                                    ` : ''}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+        }
+
+        // --- 7. HIGH-RESOLUTION DIRECT PDF DOWNLOAD ---
+        function downloadCVAsPDF() {
+            const element = document.getElementById('cvDocument');
+            const btn = document.getElementById('downloadPdfBtn');
+            const originalHTML = btn.innerHTML;
+            const prevTransform = element.style.transform;
+
+            // Reset zoom temporarily to 100% for crisp A4 capture
+            element.style.transform = 'scale(1)';
+            btn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> <span>Exporting PDF...</span>`;
+            btn.disabled = true;
+
+            const cleanName = (state.data.name || 'Anumta_Naeem').trim().replace(/[^a-zA-Z0-9]+/g, '_');
+            const opt = {
+                margin:       0,
+                filename:     `${cleanName}_CV.pdf`,
+                image:        { type: 'jpeg', quality: 0.98 },
+                html2canvas:  { scale: 2, useCORS: true, letterRendering: true },
+                jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
+            };
+
+            html2pdf().set(opt).from(element).save().then(() => {
+                element.style.transform = prevTransform;
+                btn.innerHTML = originalHTML;
+                btn.disabled = false;
+                showToast(`Downloaded "${cleanName}_CV.pdf"`);
+            }).catch(err => {
+                console.error(err);
+                element.style.transform = prevTransform;
+                btn.innerHTML = originalHTML;
+                btn.disabled = false;
+                window.print();
+            });
+        }
+
+        // --- 8. SAMPLE DATA, CLEAR & HELPERS ---
+        function fillSampleData() {
+            state.data = JSON.parse(JSON.stringify(DEFAULT_SAMPLE_DATA));
+            populateAllInputs();
+            renderExperienceEditor();
+            renderEducationEditor();
+            renderProjectEditor();
+            renderSkillsEditor();
+            renderCVDocument();
+            updateStrengthMeter();
+            saveToLocalStorage();
+            showToast('Executive sample profile loaded');
+        }
+
+        function clearAllData() {
+            state.data = {
+                photo: "",
+                showPhoto: false,
+                photoShape: "circle",
+                name: "",
+                role: "",
+                email: "",
+                phone: "",
+                location: "",
+                website: "",
+                summary: "",
+                experiences: [],
+                educations: [],
+                projects: [],
+                skills: [],
+                languages: "",
+                certifications: ""
+            };
+            populateAllInputs();
+            renderExperienceEditor();
+            renderEducationEditor();
+            renderProjectEditor();
+            renderSkillsEditor();
+            renderCVDocument();
+            updateStrengthMeter();
+            saveToLocalStorage();
+            showToast('Workspace cleared — ready for your details');
+        }
+
+        function escapeHtml(str) {
+            if (!str) return '';
+            return String(str)
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;")
+                .replace(/'/g, "&#039;");
+        }
+
+        let toastTimeout;
+        function showToast(msg) {
+            const toast = document.getElementById('studioToast');
+            document.getElementById('studioToastMsg').textContent = msg;
+            toast.classList.remove('translate-y-24', 'opacity-0');
+            clearTimeout(toastTimeout);
+            toastTimeout = setTimeout(() => {
+                toast.classList.add('translate-y-24', 'opacity-0');
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
